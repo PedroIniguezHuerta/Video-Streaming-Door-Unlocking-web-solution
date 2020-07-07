@@ -1,0 +1,11 @@
+{
+	"name": "MEAN",
+	"version": "0.0.7",
+	"dependencies": {
+		"cookie-parser": "^1.4.5",
+		"express": "^4.17.1",
+		"opencv4nodejs": "^4.7.3",
+		"rpi-gpio": "^2.1.7",
+		"socket.io": "^2.1.1"
+	}
+}

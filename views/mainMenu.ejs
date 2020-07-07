@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+        <title><%= title %></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./font-awesome.min.css">
+  <link rel="stylesheet" href="./myStyles.css">
+</head>
+
+<body>
+
+<h2 style="text-align:center"> Unlocking Door System </h2>
+
+<div class="card">
+  <img name='live-stream' src="" style="width:100%">
+  <div class="container">
+    <form method="post">
+      <p><button id="streaming" type="submit" formaction="/unlocker">Unlock Door</button></p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+const socket = io.connect('http://192.168.1.95:3000');
+const liveStream = document.querySelector('img[name=live-stream]');
+socket.on('new-frame', (stream) => {
+      liveStream.src = `data:image/jpeg;base64,${stream.live}`;
+ });
+
+</script>
+
+
+</body>
+</html> 
